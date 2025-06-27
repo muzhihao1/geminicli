@@ -16,7 +16,7 @@ const footerLinks = {
   'Support': [
     { name: 'Troubleshooting', href: '/troubleshooting' },
     { name: 'Community Forum', href: '/community' },
-    { name: 'GitHub Issues', href: 'https://github.com/google/gemini-cli/issues' },
+    { name: 'GitHub Issues', href: 'https://github.com/google-gemini/gemini-cli/issues' },
     { name: 'Contact Us', href: '/contact' },
   ],
   'About': [
@@ -43,7 +43,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://github.com/google/gemini-cli"
+                href="https://github.com/google-gemini/gemini-cli"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-neutral-gray hover:text-google-blue transition-colors"

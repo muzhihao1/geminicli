@@ -1,16 +1,18 @@
 // jest.setup.js
 import '@testing-library/jest-dom';
 
-// Mock IntersectionObserver
-global.IntersectionObserver = class IntersectionObserver {
-  constructor() {}
-  disconnect() {}
-  observe() {}
-  unobserve() {}
-};
+// Only set up DOM-related mocks if we're in a jsdom environment
+if (typeof window !== 'undefined') {
+  // Mock IntersectionObserver
+  global.IntersectionObserver = class IntersectionObserver {
+    constructor() {}
+    disconnect() {}
+    observe() {}
+    unobserve() {}
+  };
 
-// Mock window.matchMedia
-Object.defineProperty(window, 'matchMedia', {
+  // Mock window.matchMedia
+  Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: jest.fn().mockImplementation(query => ({
     matches: false,
@@ -22,26 +24,29 @@ Object.defineProperty(window, 'matchMedia', {
     removeEventListener: jest.fn(),
     dispatchEvent: jest.fn(),
   })),
-});
+  });
 
-// Mock scrollTo
-global.scrollTo = jest.fn();
+  // Mock scrollTo
+  global.scrollTo = jest.fn();
 
-// Mock ResizeObserver
-global.ResizeObserver = class ResizeObserver {
-  constructor() {}
-  disconnect() {}
-  observe() {}
-  unobserve() {}
-};
+  // Mock ResizeObserver
+  global.ResizeObserver = class ResizeObserver {
+    constructor() {}
+    disconnect() {}
+    observe() {}
+    unobserve() {}
+  };
+}
 
-// Suppress console errors in tests unless explicitly checking for them
+// Temporarily suppress act warnings while we fix them properly
+// TODO: Remove this suppression once all tests are properly updated
 const originalError = console.error;
 beforeAll(() => {
   console.error = (...args) => {
     if (
       typeof args[0] === 'string' &&
-      args[0].includes('Warning: ReactDOMTestUtils.act')
+      (args[0].includes('Warning: ReactDOMTestUtils.act') ||
+       args[0].includes('was not wrapped in act'))
     ) {
       return;
     }

@@ -195,7 +195,7 @@ export default function TroubleshootingPage() {
                 Ask the Community
               </Link>
               <Link 
-                href="https://github.com/google/gemini-cli/issues" 
+                href="https://github.com/google-gemini/gemini-cli/issues" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary"

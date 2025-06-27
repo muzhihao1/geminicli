@@ -103,7 +103,7 @@ export default function InstallationGuidePage() {
                 <h3 className="text-h3 mb-3">From Source</h3>
                 <div className="bg-neutral-dark text-white p-4 rounded-lg font-code">
                   <p className="text-green-400"># Clone the repository</p>
-                  <p>git clone https://github.com/google/gemini-cli.git</p>
+                  <p>git clone https://github.com/google-gemini/gemini-cli.git</p>
                   <p>cd gemini-cli</p>
                   <p className="text-green-400 mt-2"># Install dependencies</p>
                   <p>npm install</p>
