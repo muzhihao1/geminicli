@@ -22,7 +22,7 @@ const questions = [
     id: 'usage',
     question: 'How do I use Gemini CLI for code editing?',
     description: 'Master basic commands and advanced editing techniques',
-    href: '/use-cases/code-editing',
+    href: '/qa/code-editing',
     icon: '✏️',
   },
   {
@@ -36,7 +36,7 @@ const questions = [
     id: 'mcp',
     question: 'How do I integrate MCP servers?',
     description: 'MCP server configuration to extend Gemini CLI functionality',
-    href: '/resources/mcp-servers',
+    href: '/tools/mcp-servers',
     icon: '🔌',
   },
 ]
